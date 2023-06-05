@@ -1,0 +1,13 @@
+.card-list {
+  display: flex;
+  width: 87%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  list-style-type: none;
+  gap: 10px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+

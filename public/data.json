@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Товар 1",
+    "price": 10.99,
+    "src": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHwxMnx8bXVzaWNzfGVufDB8fHx8MTY4NTg3Nzk1MXww&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "112",
+    "color": "red"
+  },
+  {
+    "id": 2,
+    "title": "Товар 2",
+    "price": 11.99,
+    "src": "https://images.unsplash.com/photo-1460036521480-ff49c08c2781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHwxMXx8bXVzaWNzfGVufDB8fHx8MTY4NTg3Nzk1MXww&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "113",
+    "color": "orange"
+  },
+  {
+    "id": 3,
+    "title": "Товар 3",
+    "price": 12.99,
+    "src": "https://images.unsplash.com/photo-1445985543470-41fba5c3144a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHwxMHx8bXVzaWNzfGVufDB8fHx8MTY4NTg3Nzk1MXww&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "114",
+    "color": "yellow"
+  },
+  {
+    "id": 4,
+    "title": "Товар 4",
+    "price": 13.99,
+    "src": "https://images.unsplash.com/photo-1485688809171-248861015a63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHwxfHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "115",
+    "color": "green"
+  },
+  {
+    "id": 5,
+    "title": "Товар 5",
+    "price": 14.99,
+    "src": "https://images.unsplash.com/photo-1525522819526-d571040e1607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHwyfHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "116",
+    "color": "blue"
+  },
+  {
+    "id": 6,
+    "title": "Товар 6",
+    "price": 15.99,
+    "src": "https://images.unsplash.com/photo-1530801588537-594a77d18206?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHwzfHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "117",
+    "color": "indigo"
+  },
+  {
+    "id": 7,
+    "title": "Товар 7",
+    "price": 19.99,
+    "src": "https://images.unsplash.com/photo-1574892561477-7249f4be2f6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHw0fHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "118",
+    "color": "violet"
+  },
+  {
+    "id": 8,
+    "title": "Товар 8",
+    "price": 29.99,
+    "src": "https://images.unsplash.com/photo-1611607546163-86e495caac68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHw1fHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "119",
+    "color": "pink"
+  },
+  {
+    "id": 9,
+    "title": "Товар 9",
+    "price": 1.99,
+    "src": "https://images.unsplash.com/photo-1659406152336-443f050bff83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHw2fHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "120",
+    "color": "white"
+  },
+  {
+    "id": 10,
+    "title": "Товар 10",
+    "price": 9.99,
+    "src": "https://images.unsplash.com/photo-1598038925168-e9d4171aa5a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHw3fHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "121",
+    "color": "gray"
+  },
+  {
+    "id": 11,
+    "title": "Товар 11",
+    "price": 100.99,
+    "src": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHw4fHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "122",
+    "color": "black"
+  },
+  {
+    "id": 12,
+    "title": "Товар 12",
+    "price": 199.99,
+    "src": "https://images.unsplash.com/photo-1471478331149-c72f17e33c73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTY1MzB8MHwxfHNlYXJjaHw5fHxtdXNpY3N8ZW58MHx8fHwxNjg1ODc3OTUxfDA&ixlib=rb-4.0.3&q=80&w=400",
+    "article": "123",
+    "color": "brown"
+  }
+]

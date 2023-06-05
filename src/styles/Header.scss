@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 87%;
+  margin: 0 auto;
+
+  .header-title {
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0 15px;
+    text-decoration: none;
+    color: goldenrod;
+  }
+}
+
+.header-btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.header-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background: goldenrod;
+  border: none;
+}

@@ -1,0 +1,44 @@
+.card-item {
+  display: flex;
+  position: relative;
+  border: 1px solid #000;
+  border-radius: 5px;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .color-item {
+    display: flex;
+    justify-content: space-between;
+
+    .box-color {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 0.1px solid black;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: goldenrod;
+    cursor: pointer;
+  }
+
+  .card-item-content {
+    padding: 15px;
+  }
+
+  button {
+    margin: 10px;
+  }
+}
