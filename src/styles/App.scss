@@ -13,5 +13,46 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  list-style: none;
+  width: 87%;
+  margin: 0 auto;
+  border-bottom: 2px solid goldenrod;
+
+  .header-title {
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0 15px;
+    text-decoration: none;
+    color: goldenrod;
+  }
+}
+
+.header-btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  width: 300px;
+}
+
+.header-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background: goldenrod;
+  border: none;
 }

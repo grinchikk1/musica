@@ -26,10 +26,19 @@
     }
   }
 
-  span {
+  .favorite {
     position: absolute;
     top: 15px;
-    right: 15px;
+    left: 15px;
+    color: goldenrod;
+    cursor: pointer;
+  }
+
+  .remove-to-cart {
+    position: absolute;
+    font-size: 30px;
+    top: 0px;
+    right: 5px;
     color: goldenrod;
     cursor: pointer;
   }

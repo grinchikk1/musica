@@ -1,17 +1,14 @@
-import { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "../styles/Button.scss";
 
-class Button extends Component {
-  render() {
-    const { backgroundColor, text, onClick } = this.props;
-    return (
-      <button className="button" style={{ backgroundColor }} onClick={onClick}>
-        {text}
-      </button>
-    );
-  }
-}
+const Button = ({ backgroundColor, text, onClick }) => {
+  return (
+    <button className="button" style={{ backgroundColor }} onClick={onClick}>
+      {text}
+    </button>
+  );
+};
 
 Button.propTypes = {
   backgroundColor: PropTypes.string,

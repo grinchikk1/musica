@@ -4,16 +4,16 @@ import Button from "./Button";
 import "../styles/ProductCard.scss";
 import Modal from "./Modal";
 
-const ProductCard = ({ card, addToCart, toggleFavorite, isFavorite }) => {
+const ProductCart = ({ card, deleteToCart, toggleFavorite, isFavorite }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAddToCart = () => {
+  const handleDeleteToCart = () => {
     setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    addToCart(card);
+    deleteToCart(card);
   };
 
   return (
@@ -35,16 +35,19 @@ const ProductCard = ({ card, addToCart, toggleFavorite, isFavorite }) => {
         <span className="favorite" onClick={() => toggleFavorite(card)}>
           {isFavorite ? "★" : "☆"}
         </span>
+        <span className="remove-to-cart" onClick={handleDeleteToCart}>
+          &times;
+        </span>
       </div>
       <Button
-        onClick={handleAddToCart}
-        text={"Add to cart"}
+        onClick={() => {}}
+        text={"Buy Now"}
         backgroundColor={"goldenrod"}
       />
       <Modal
         header="Confirmation"
         closeButton={true}
-        text={`Product "${card.title}" has been added to the cart.`}
+        text={`Are you sure you want to remove this item from your cart?`}
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         actions={
@@ -66,11 +69,11 @@ const ProductCard = ({ card, addToCart, toggleFavorite, isFavorite }) => {
   );
 };
 
-ProductCard.propTypes = {
+ProductCart.propTypes = {
   card: PropTypes.object.isRequired,
-  addToCart: PropTypes.func.isRequired,
+  deleteToCart: PropTypes.func.isRequired,
   toggleFavorite: PropTypes.func.isRequired,
   isFavorite: PropTypes.bool.isRequired,
 };
 
-export default ProductCard;
+export default ProductCart;
