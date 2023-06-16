@@ -1,19 +1,28 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 import "../styles/ProductCard.scss";
 import Modal from "./Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { setModalStatus } from "../redux/Action";
 
 const ProductCart = ({ card, deleteToCart, toggleFavorite, isFavorite }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const isModalOpen = useSelector((state) => state.modalReducer.isModalOpen);
+  const selectedItemId = useSelector(
+    (state) => state.modalReducer.selectedItemId
+  );
+  const dispatch = useDispatch();
 
   const handleDeleteToCart = () => {
-    setIsModalOpen(true);
+    dispatch(setModalStatus(true, card.id));
+  };
+
+  const handleDeleteButtonOk = () => {
+    dispatch(setModalStatus(false, card.id));
+    deleteToCart(card);
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
-    deleteToCart(card);
+    dispatch(setModalStatus(false, card.id));
   };
 
   return (
@@ -48,19 +57,19 @@ const ProductCart = ({ card, deleteToCart, toggleFavorite, isFavorite }) => {
         header="Confirmation"
         closeButton={true}
         text={`Are you sure you want to remove this item from your cart?`}
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
+        isOpen={isModalOpen && selectedItemId === card.id}
+        onRequestClose={handleModalClose}
         actions={
           <>
             <Button
               backgroundColor="goldenrod"
               text="Ok"
-              onClick={handleModalClose}
+              onClick={handleDeleteButtonOk}
             />
             <Button
               backgroundColor="goldenrod"
               text="Cancel"
-              onClick={() => setIsModalOpen(false)}
+              onClick={handleModalClose}
             />
           </>
         }

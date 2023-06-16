@@ -1,8 +1,15 @@
 import axios from "axios";
+import { fetchDataSuccess, fetchDataFailure } from "../redux/Action";
 
-const getData = async () => {
-  const response = await axios.get("data.json");
-  return response.data;
+const fetchData = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get("data.json");
+      dispatch(fetchDataSuccess(response.data));
+    } catch (error) {
+      dispatch(fetchDataFailure(error.message));
+    }
+  };
 };
 
-export default getData;
+export default fetchData;

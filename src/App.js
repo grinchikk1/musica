@@ -1,115 +1,98 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { FaShoppingCart, FaStar } from "react-icons/fa";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import FavoritesPage from "./pages/FavoritesPage";
-import getData from "./services/ApiService";
+import fetchData from "./services/ApiService";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToCart,
+  loadCart,
+  loadFavorites,
+  deleteFromCart,
+  saveCart,
+  addToFavorites,
+  saveFavorites,
+  removeFromFavorites,
+} from "./redux/Action";
 import "./styles/App.scss";
+import Header from "./components/Header";
 
 const App = () => {
-  const [cards, setCards] = useState([]);
-  const [cart, setCart] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const cards = useSelector((state) => state.dataReducer.data);
+  const cart = useSelector((state) => state.cartReducer);
+  const favorites = useSelector((state) => state.favoritesReducer);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const results = await getData();
-      setCards(results);
-    };
+    saveCart(cart);
+    saveFavorites(favorites);
+  }, [cart, favorites]);
 
-    fetchData();
+  useEffect(() => {
+    dispatch(fetchData());
 
     const savedCart = localStorage.getItem("cart");
     const savedFavorites = localStorage.getItem("favorites");
 
     try {
       if (savedCart) {
-        setCart(JSON.parse(savedCart));
+        dispatch(loadCart(savedCart));
       }
 
       if (savedFavorites) {
-        setFavorites(JSON.parse(savedFavorites));
+        dispatch(loadFavorites(savedFavorites));
       }
     } catch (error) {
       console.error("Error loading data from localStorage:", error);
     }
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [cart, favorites]);
-
-  const addToCart = (product) => {
+  const handleAddToCart = (product) => {
     if (isCardInCart(product.id)) {
       return alert("You already have a card in your cart");
     }
 
-    setCart((prevCart) => [...prevCart, product]);
+    dispatch(addToCart(product));
   };
 
-  const deleteToCart = (product) => {
-    setCart((prevCart) => prevCart.filter((p) => p.id !== product.id));
+  const handleDeleteToCart = (product) => {
+    dispatch(deleteFromCart(product));
   };
 
   const isCardInCart = (cardId) => {
     return cart.some((card) => card.id === cardId);
   };
 
-  const addToFavorites = (product) => {
-    setFavorites((prevFavorites) => [...prevFavorites, product]);
+  const handleAddToFavorites = (product) => {
+    dispatch(addToFavorites(product));
   };
 
-  const removeFromFavorites = (card) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.filter((p) => p.id !== card.id)
-    );
+  const handleRemoveFromFavorites = (card) => {
+    dispatch(removeFromFavorites(card));
   };
 
   const toggleFavorite = (product) => {
     if (favorites.find((p) => p.id === product.id)) {
-      removeFromFavorites(product);
+      handleRemoveFromFavorites(product);
     } else {
-      addToFavorites(product);
+      handleAddToFavorites(product);
     }
   };
 
   return (
     <Router>
       <div className="app">
-        <nav>
-          <ul className="header">
-            <li>
-              <Link className="header-title" to="/">
-                Music Store
-              </Link>
-            </li>
-            <ul className="header-btn-box">
-              <li>
-                <Link className="header-btn" to="/favorites">
-                  Вибране {favorites.length}
-                  <FaStar />
-                </Link>
-              </li>
-              <li>
-                <Link className="header-btn" to="/cart">
-                  Кошик {cart.length}
-                  <FaShoppingCart />
-                </Link>
-              </li>
-            </ul>
-          </ul>
-        </nav>
-        <Routes index="/">
+        <Header cart={cart} favorites={favorites} />
+        <Routes>
           <Route
             path="/"
-            exact
             element={
               <HomePage
                 toggleFavorite={toggleFavorite}
-                addToCart={addToCart}
+                addToCart={handleAddToCart}
                 cards={cards}
                 favorites={favorites}
               />
@@ -120,7 +103,7 @@ const App = () => {
             element={
               <CartPage
                 toggleFavorite={toggleFavorite}
-                deleteToCart={deleteToCart}
+                deleteToCart={handleDeleteToCart}
                 cart={cart}
                 favorites={favorites}
               />
@@ -131,7 +114,7 @@ const App = () => {
             element={
               <FavoritesPage
                 toggleFavorite={toggleFavorite}
-                addToCart={addToCart}
+                addToCart={handleAddToCart}
                 favorites={favorites}
               />
             }
