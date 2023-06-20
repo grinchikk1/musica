@@ -48,11 +48,6 @@ const ProductCart = ({ card, deleteToCart, toggleFavorite, isFavorite }) => {
           &times;
         </span>
       </div>
-      <Button
-        onClick={() => {}}
-        text={"Buy Now"}
-        backgroundColor={"goldenrod"}
-      />
       <Modal
         header="Confirmation"
         closeButton={true}

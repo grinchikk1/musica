@@ -3,6 +3,7 @@ import {
   DELETE_FROM_CART,
   LOAD_CART,
   SAVE_CART_DATA,
+  DELETE_ALL_FROM_CART
 } from "./Type";
 
 const savedCart = localStorage.getItem("cart");
@@ -21,6 +22,9 @@ export const cartReducer = (state = initialState, action) => {
 
     case DELETE_FROM_CART:
       return state.filter((card) => card.id !== action.data.id);
+
+    case DELETE_ALL_FROM_CART:
+      return [];
 
     default:
       return state;

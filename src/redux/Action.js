@@ -10,6 +10,7 @@ import {
   LOAD_CART,
   LOAD_FAVORITES,
   SET_MODAL_STATUS,
+  DELETE_ALL_FROM_CART,
 } from "./Type";
 
 export const loadCart = (savedCart) => {
@@ -32,6 +33,10 @@ export const deleteFromCart = (data) => ({
   type: DELETE_FROM_CART,
   data,
 });
+
+export const deleteAllFromCart = () => {
+  return { type: DELETE_ALL_FROM_CART };
+};
 
 export const loadFavorites = (loadFavorites) => {
   return { type: LOAD_FAVORITES, data: JSON.parse(loadFavorites) };
