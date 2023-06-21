@@ -1,35 +1,37 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToCart,
+  deleteFromCart,
+  loadCart,
+  saveCart,
+} from "./redux/Reducers";
+import {
+  addToFavorites,
+  loadFavorites,
+  removeFromFavorites,
+  saveFavorites,
+} from "./redux/Reducers";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import fetchData from "./services/ApiService";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  addToCart,
-  loadCart,
-  loadFavorites,
-  deleteFromCart,
-  saveCart,
-  addToFavorites,
-  saveFavorites,
-  removeFromFavorites,
-} from "./redux/Action";
 import "./styles/App.scss";
 import Header from "./components/Header";
 
 const App = () => {
-  const cards = useSelector((state) => state.dataReducer.data);
-  const cart = useSelector((state) => state.cartReducer);
-  const favorites = useSelector((state) => state.favoritesReducer);
+  const cards = useSelector((state) => state.data);
+  const cart = useSelector((state) => state.cart);
+  const favorites = useSelector((state) => state.favorites);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    saveCart(cart);
-    saveFavorites(favorites);
-  }, [cart, favorites]);
+    dispatch(saveCart(cart));
+    dispatch(saveFavorites(favorites));
+  }, [cart, favorites, dispatch]);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -39,11 +41,11 @@ const App = () => {
 
     try {
       if (savedCart) {
-        dispatch(loadCart(savedCart));
+        dispatch(loadCart(JSON.parse(savedCart)));
       }
 
       if (savedFavorites) {
-        dispatch(loadFavorites(savedFavorites));
+        dispatch(loadFavorites(JSON.parse(savedFavorites)));
       }
     } catch (error) {
       console.error("Error loading data from localStorage:", error);

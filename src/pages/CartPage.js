@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../styles/ProductCart.scss";
 import Button from "../components/Button";
 import ModalForm from "../components/ModalForm";
-import { deleteAllFromCart } from "../redux/Action";
+import { deleteAllFromCart } from "../redux/Reducers";
 import { useDispatch } from "react-redux";
 
 const CartPage = ({ toggleFavorite, cart, deleteToCart, favorites }) => {

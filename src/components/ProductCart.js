@@ -1,28 +1,27 @@
+import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 import "../styles/ProductCard.scss";
 import Modal from "./Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { setModalStatus } from "../redux/Action";
+import { setModalStatus } from "../redux/Reducers";
 
 const ProductCart = ({ card, deleteToCart, toggleFavorite, isFavorite }) => {
-  const isModalOpen = useSelector((state) => state.modalReducer.isModalOpen);
-  const selectedItemId = useSelector(
-    (state) => state.modalReducer.selectedItemId
-  );
+  const isModalOpen = useSelector((state) => state.modal.isModalOpen);
+  const selectedItemId = useSelector((state) => state.modal.selectedItemId);
   const dispatch = useDispatch();
 
   const handleDeleteToCart = () => {
-    dispatch(setModalStatus(true, card.id));
+    dispatch(setModalStatus({ isOpen: true, itemId: card.id }));
   };
 
   const handleDeleteButtonOk = () => {
-    dispatch(setModalStatus(false, card.id));
+    dispatch(setModalStatus({ isOpen: false, itemId: card.id }));
     deleteToCart(card);
   };
 
   const handleModalClose = () => {
-    dispatch(setModalStatus(false, card.id));
+    dispatch(setModalStatus({ isOpen: false, itemId: card.id }));
   };
 
   return (

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fetchDataSuccess, fetchDataFailure } from "../redux/Action";
+import { fetchDataSuccess, fetchDataFailure } from "../redux/Reducers";
 
 const fetchData = () => {
   return async (dispatch) => {
