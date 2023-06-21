@@ -88,7 +88,7 @@ const App = () => {
         <Header cart={cart} favorites={favorites} />
         <Routes>
           <Route
-            path="/"
+            path="/musica/"
             element={
               <HomePage
                 toggleFavorite={toggleFavorite}
@@ -99,7 +99,7 @@ const App = () => {
             }
           />
           <Route
-            path="/cart"
+            path="/musica/cart"
             element={
               <CartPage
                 toggleFavorite={toggleFavorite}
@@ -110,7 +110,7 @@ const App = () => {
             }
           />
           <Route
-            path="/favorites"
+            path="/musica/favorites"
             element={
               <FavoritesPage
                 toggleFavorite={toggleFavorite}

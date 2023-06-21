@@ -80,7 +80,6 @@ export default function ModalForm({
         >
           <Form className="modal-form-content">
             <div className="modal-form-box-field">
-              {" "}
               <div className="modal-form-item">
                 <label htmlFor="firstName">Ім'я: </label>
                 <Field type="text" id="firstName" name="firstName" />
