@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const savedCart = localStorage.getItem("cart");
-const savedFavorites = localStorage.getItem("favorites");
-
 const cartSlice = createSlice({
   name: "cart",
-  initialState: savedCart ? JSON.parse(savedCart) : [],
+  initialState: localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [],
   reducers: {
     addToCart: (state, action) => {
       state.push(action.payload);
@@ -27,7 +26,9 @@ const cartSlice = createSlice({
 
 const favoritesSlice = createSlice({
   name: "favorites",
-  initialState: savedFavorites ? JSON.parse(savedFavorites) : [],
+  initialState: localStorage.getItem("favorites")
+    ? JSON.parse(localStorage.getItem("favorites"))
+    : [],
   reducers: {
     addToFavorites: (state, action) => {
       state.push(action.payload);
@@ -53,7 +54,6 @@ const dataSlice = createSlice({
     },
     fetchDataFailure: (state, action) => {
       console.error("Error occurred during data fetching:", action.payload);
-      // Handle error
     },
   },
 });
