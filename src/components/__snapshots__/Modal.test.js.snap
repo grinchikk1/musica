@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Component renders correctly when isOpen is false 1`] = `null`;
+
+exports[`Modal Component renders correctly when isOpen is true 1`] = `
+<div
+  className="modal-overlay"
+  onClick={[Function]}
+>
+  <div
+    className="modal"
+    onClick={[Function]}
+  >
+    <div
+      className="modal-header"
+    >
+      <h2>
+        Modal Header
+      </h2>
+      <button
+        className="modal-close"
+        onClick={[Function]}
+      >
+        ×
+      </button>
+    </div>
+    <div
+      className="modal-content"
+    >
+      Modal Content
+    </div>
+    <div
+      className="modal-actions"
+    >
+      <button>
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+`;

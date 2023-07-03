@@ -1,6 +1,6 @@
 import React from "react";
-import { FaShoppingCart, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 export default function Header({ favorites, cart }) {
   return (
@@ -13,15 +13,21 @@ export default function Header({ favorites, cart }) {
         </li>
         <ul className="header-btn-box">
           <li>
-            <Link className="header-btn" to="/musica/favorites">
-              Вибране {favorites.length}
-              <FaStar />
+            <Link to="/musica/favorites">
+              <Button
+                text={"Вибране " + favorites.length}
+                backgroundColor="goldenrod"
+                onClick={() => {}}
+              />
             </Link>
           </li>
           <li>
-            <Link className="header-btn" to="/musica/cart">
-              Кошик {cart.length}
-              <FaShoppingCart />
+            <Link to="/musica/cart">
+              <Button
+                text={"Кошик " + cart.length}
+                backgroundColor="goldenrod"
+                onClick={() => {}}
+              />
             </Link>
           </li>
         </ul>

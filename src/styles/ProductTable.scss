@@ -1,0 +1,32 @@
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #000;
+    text-align: center;
+  }
+
+  .product-image {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .color-box {
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #000;
+  }
+
+  .favorite {
+    color: goldenrod;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}

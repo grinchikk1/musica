@@ -34,8 +34,10 @@ export default function ModalForm({
   }
 
   const onSubmit = async (values) => {
-    console.log("Processing order...");
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    deleteAllFromCart();
+    handleModalClose();
+    // console.log("Processing order...");
+    // await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log("Order completed!");
     console.group("Придбані товари:");
     console.log(cart.map((cart) => cart.title).join(", "));
@@ -51,9 +53,6 @@ export default function ModalForm({
       ].join(", ")
     );
     console.groupEnd();
-
-    deleteAllFromCart();
-    handleModalClose();
   };
 
   return (

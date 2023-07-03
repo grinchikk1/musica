@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component renders correctly 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "goldenrod",
+    }
+  }
+>
+  Buy Now
+</button>
+`;
